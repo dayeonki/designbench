@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Example</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            font-weight: 600;
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .section p {
+            font-weight: 300;
+        }
+        .design-choices, .images {
+            margin-left: 20px;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        /* Styling for the Next button */
+        .next-button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .next-button:hover {
+            background-color: #45a049;
+        }
+        /* Styling for the Back button */
+        .back-button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            padding: 10px 20px;
+            background-color: grey;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #6c6c6c;
+        }
+        /* Styling for images */
+        .image-display {
+            margin-top: 20px;
+        }
+        .image-display img {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2><span style="color: #4CAF50;">Successful</span> Example</h2>
+
+    <div class="section">
+        <h3>User Query:</h3>
+        <p>I need help creating a promotional poster for 'Dreamy Skies' stargazing event on a twilight blue background, featuring a large image of a telescope in the center, a medium constellation graphic around the telescope image, and the event title 'Dreamy Skies' in huge silver font at the top center. Additionally, include the tagline 'Date: 30th July 2022\nLocation: Observatory Hill\nTime: 8 PM' in medium white font at the bottom center.</p>
+    </div>
+
+    <div class="section">
+        <h3>Design Choices:</h3>
+        <div class="design-choices">
+            <p><strong>Background color:</strong> twilight blue</p>
+            <p><strong>Text:</strong></p>
+            <ul>
+                <li><strong>Title</strong>
+                    <ul>
+                        <li>Content: "Dreamy Skies"</li>
+                        <li>Size: huge</li>
+                        <li>Color: silver</li>
+                        <li>Position: top center</li>
+                    </ul>
+                </li>
+                <li><strong>Tagline</strong>
+                    <ul>
+                        <li>Content: "Date: 30th July 2022\nLocation: Observatory Hill\nTime: 8 PM"</li>
+                        <li>Size: medium</li>
+                        <li>Color: white</li>
+                        <li>Position: bottom center</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Images:</h3>
+        <div class="images">
+            <ul>
+                <li><strong>Telescope image</strong>
+                    <ul>
+                        <li>Size: large</li>
+                        <li>Position: centered</li>
+                    </ul>
+                </li>
+                <li><strong>Constellation graphic</strong>
+                    <ul>
+                        <li>Size: medium</li>
+                        <li>Position: around the telescope image</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Image display section -->
+    <div class="image-display">
+        <img src="https://openclipart.org/image/800px/323433" alt="Telescope Image">
+        <img src="https://publicdomainvectors.org/tn_img/UraniasMirror15.webp" alt="Constellation Graphic">
+    </div>
+
+    <div class="button-container">
+        <button class="back-button" onclick="window.location.href='/'">Previous</button>
+        <button class="next-button" onclick="window.location.href='/failure'">Next</button>
+    </div>
+
+</body>
+</html>

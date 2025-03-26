@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annotation</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            font-weight: 600;
+            text-align: center;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .radio-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Design tool usage</h3>
+    <p>How often do you use design tools in daily work and life? Please select the option that best describes your experience.</p>
+    <p><i>(Design tools refer to software used to create design outcomes, such as postcards, posters, and more.)</i></p>
+
+    <div class="form-container">
+        <form action="/save_design_tool" method="POST">
+            <div class="radio-container">
+                <label><input type="radio" name="design_usage" value="Never" required> <strong>Never:</strong> Never in the past month</label>
+                <label><input type="radio" name="design_usage" value="Rarely"> <strong>Rarely:</strong> Fewer than once a week</label>
+                <label><input type="radio" name="design_usage" value="Sometimes"> <strong>Sometimes:</strong> Two or three times a week</label>
+                <label><input type="radio" name="design_usage" value="Often"> <strong>Often:</strong> More than three times a week, but not every day</label>
+                <label><input type="radio" name="design_usage" value="Always"> <strong>Always:</strong> Almost every day</label>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

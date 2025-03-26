@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annotation</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1 {
+            font-weight: 600;
+        }
+        p {
+            font-weight: 300;
+        }
+        button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            font-weight: 400;
+            background-color: #f2f2f2;
+        }
+        td {
+            font-weight: 400;
+        }
+        .description {
+            font-size: 12px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <h1>Annotation ({{ index+1  }} / 30)</h1>
+    <p><strong>User Query:</strong></p>
+    <p>{{ user_query }}</p>
+
+    <p><strong>Design Choices:</strong></p>
+    <ul>
+        <li><strong>Background Color:</strong> {{ design_choices['background_color'] }}</li>
+
+        {% if design_choices['text'] is defined %}
+        <li><strong>Text:</strong>
+            <ul>
+                {% for text_type, text_value in design_choices['text'].items() %}
+                <li><strong>{{ text_type | capitalize }}</strong>
+                    <ul>
+                        <li>Content: "{{ text_value['content'] }}"</li>
+                        <li>Size: {{ text_value['size'] }}</li>
+                        <li>Color: {{ text_value['color'] }}</li>
+                        <li>Position: {{ text_value['position'] }}</li>
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endif %}
+
+        {% if design_choices['visual'] is defined %}
+        <li><strong>Images:</strong>
+            <ul>
+                {% for visual_type, visual_value in design_choices['visual'].items() %}
+                <li><strong>{{ visual_type | replace("_", " ") | capitalize }}</strong>
+                    <ul>
+                        <li>Size: {{ visual_value['size'] }}</li>
+                        <li>Position: {{ visual_value['position'] }}</li>
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endif %}
+    </ul>
+    <hr>
+
+    <br>
+    <p><strong>[Question 1]</strong></p>
+    <p>Is each design choice <b>aligned</b> with the user query?</p>
+    <p><i>(Here, <b>"aligned"</b> means that each design element fits the user’s specifications in the query and contributes to the overall coherence of the final design.)</i></p>
+    
+
+    <form method="POST">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th><strong>Not aligned at all</strong> (key elements are missing)</th>
+                    <th><strong>Slightly aligned</strong> (some important elements misplaced/incorrectly implemented)</th>
+                    <th><strong>Moderately aligned</strong> (capture general intent but need adjustment to fully meet user's specifications)</th>
+                    <th><strong>Aligned well</strong> (only need minor adjustments)</th>
+                    <th><strong>Completely aligned</strong> (perfectly match user query)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Background color alignment question -->
+                <tr>
+                    <td>Background color</td>
+                    <td><input type="radio" name="background_color" value="Not aligned at all" required></td>
+                    <td><input type="radio" name="background_color" value="Slightly aligned"></td>
+                    <td><input type="radio" name="background_color" value="Moderately aligned"></td>
+                    <td><input type="radio" name="background_color" value="Aligned well"></td>
+                    <td><input type="radio" name="background_color" value="Completely aligned"></td>
+                </tr>
+    
+                <!-- Dynamically generate form questions for each text item in design_choices -->
+                {% if design_choices['text'] is defined %}
+                    {% for text_item, text_details in design_choices['text'].items() %}
+                        <tr>
+                            <td>{{ text_item | capitalize }}</td>
+                            <td><input type="radio" name="{{ text_item }}" value="Not aligned at all" required></td>
+                            <td><input type="radio" name="{{ text_item }}" value="Slightly aligned"></td>
+                            <td><input type="radio" name="{{ text_item }}" value="Moderately aligned"></td>
+                            <td><input type="radio" name="{{ text_item }}" value="Aligned well"></td>
+                            <td><input type="radio" name="{{ text_item }}" value="Completely aligned"></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+
+        <br>
+        <p><strong>[Question 2]</strong></p>
+        <p>If you answered "Not aligned at all" or "Slightly aligned" to the previous question, please explain your reasoning in 1-2 sentences. You may also suggest changes to improve the alignment of the design choices with the user query.</p>
+        <textarea name="explanation" rows="4" cols="150" placeholder="Enter here"></textarea>
+        <br><br>
+
+        <br>
+        {% if images[0] is defined %}
+        <p><strong>[Question 3]</strong></p>
+        <p>Below are the three image candidates for <strong>"{{ images[0]['content'].replace("_", " ") }}"</strong>. Please rank them based on how well they fit the user query. Assign a rank from 1 (best fit) to 3 (least fit).</p>
+
+        {% for url in images[0]['urls'] %}
+            <div>
+                <p><strong>Image {{ loop.index }}</strong></p>
+                <img src="{{ url }}" alt="{{ images[0]['content'] }} Image {{ loop.index }}" width="200">
+                <br>
+                <label for="rank_image_1_{{ loop.index }}">Rank:</label>
+                <select id="rank_image_1_{{ loop.index }}" name="rank_image_1_{{ loop.index }}" required>
+                    <option value="" disabled selected>Select rank</option>
+                    <option value="1">1 (Best fit)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Least fit)</option>
+                </select>
+            </div>
+            <br>
+        {% endfor %}
+        {% endif %}
+
+        <br>
+        {% if images[1] is defined %}
+        <p><strong>[Question 4]</strong></p>
+        <p>Below are the image candidates for <strong>"{{ images[1]['content'].replace("_", " ") }}"</strong>. Please rank them based on how well they fit the user query. Assign a rank from 1 (best fit) to {{ images[1]['urls']|length }} (least fit).</p>
+
+        {% for url in images[1]['urls'] %}
+            <div>
+                <p><strong>Image {{ loop.index }}</strong></p>
+                <img src="{{ url }}" alt="{{ images[1]['content'] }} Image {{ loop.index }}" width="200">
+                <br>
+                <label for="rank_image_2_{{ loop.index }}">Rank:</label>
+                <select id="rank_image_2_{{ loop.index }}" name="rank_image_2_{{ loop.index }}" required>
+                    <option value="" disabled selected>Select rank</option>
+                    <option value="1">1 (Best fit)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Least fit)</option>
+                </select>
+            </div>
+            <br>
+        {% endfor %}
+        {% endif %}
+
+        <br>
+        {% if images[2] is defined %}
+        <p><strong>[Question 5]</strong></p>
+        <p>Below are the image candidates for <strong>"{{ images[2]['content'].replace("_", " ") }}"</strong>. Please rank them based on how well they fit the user query. Assign a rank from 1 (best fit) to {{ images[1]['urls']|length }} (least fit).</p>
+
+        {% for url in images[2]['urls'] %}
+            <div>
+                <p><strong>Image {{ loop.index }}</strong></p>
+                <img src="{{ url }}" alt="{{ images[2]['content'] }} Image {{ loop.index }}" width="200">
+                <br>
+                <label for="rank_image_3_{{ loop.index }}">Rank:</label>
+                <select id="rank_image_3_{{ loop.index }}" name="rank_image_3_{{ loop.index }}" required>
+                    <option value="" disabled selected>Select rank</option>
+                    <option value="1">1 (Best fit)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Least fit)</option>
+                </select>
+            </div>
+            </div>
+            <br>
+        {% endfor %}
+        {% endif %}
+
+        <br>
+        {% if images[3] is defined %}
+        <p><strong>[Question 6]</strong></p>
+        <p>Below are the image candidates for <strong>"{{ images[3]['content'].replace("_", " ") }}"</strong>. Please rank them based on how well they fit the user query. Assign a rank from 1 (best fit) to {{ images[1]['urls']|length }} (least fit).</p>
+
+        {% for url in images[3]['urls'] %}
+            <div>
+                <p><strong>Image {{ loop.index }}</strong></p>
+                <img src="{{ url }}" alt="{{ images[3]['content'] }} Image {{ loop.index }}" width="200">
+                <br>
+                <label for="rank_image_4_{{ loop.index }}">Rank:</label>
+                <select id="rank_image_4_{{ loop.index }}" name="rank_image_4_{{ loop.index }}" required>
+                    <option value="" disabled selected>Select rank</option>
+                    <option value="1">1 (Best fit)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Least fit)</option>
+                </select>
+            </div>
+            </div>
+            <br>
+        {% endfor %}
+        {% endif %}
+
+        <br>
+        {% if images[4] is defined %}
+        <p><strong>[Question 7]</strong></p>
+        <p>Below are the image candidates for <strong>"{{ images[4]['content'].replace("_", " ") }}"</strong>. Please rank them based on how well they fit the user query. Assign a rank from 1 (best fit) to {{ images[1]['urls']|length }} (least fit).</p>
+
+        {% for url in images[4]['urls'] %}
+            <div>
+                <p><strong>Image {{ loop.index }}</strong></p>
+                <img src="{{ url }}" alt="{{ images[4]['content'] }} Image {{ loop.index }}" width="200">
+                <br>
+                <label for="rank_image_5_{{ loop.index }}">Rank:</label>
+                <select id="rank_image_5_{{ loop.index }}" name="rank_image_5_{{ loop.index }}" required>
+                    <option value="" disabled selected>Select rank</option>
+                    <option value="1">1 (Best fit)</option>
+                    <option value="2">2</option>
+                    <option value="3">3 (Least fit)</option>
+                </select>
+            </div>
+            </div>
+            <br>
+        {% endfor %}
+        {% endif %}
+
+        <button type="submit">Next</button>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1 {
+            font-weight: 600;
+        }
+        p {
+            font-weight: 300;
+        }
+        button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Graphic Design Annotation Task</h1>
+    <p>Thank you for participating in this study aimed at validating <b>20 user queries and user-provided images</b> for a graphic design generation task.</p>
+
+    <p>The goal of the <u>graphic design generation task</u> is to create graphic designs (e.g., a postcard) based on information from the user query.</p>
+    
+    <p>The <b>user query</b> reflects the user's request for creating one graphic design, including design choices such as background color, text, and images, where applicable. 
+        The <b>user-provided images</b> are those the user intends to incorporate into their design.</p>
+
+    <p>You will be asked to perform the following task:</p>
+
+    <ol>
+        <li>Answer if the user query and the design choices are well-aligned at a 5-point Likert scale.</li>        
+        <li>Rank the three images provided based on how well they fit the user query. Assign a rank from 1 (best fit) to 3 (least fit).</li>
+    </ol>
+
+    <p>You will be provided GPT's assessment and its confidence level to aid your decision making.</p>
+
+    <p>This annotation is expected to take 30-40 minutes in total.</p>
+    <br>
+
+    <form action="/success" method="get">
+        <button type="submit">Start</button>
+    </form>
+</body>
+</html>

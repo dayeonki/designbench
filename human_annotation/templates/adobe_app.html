@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annotation</title>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            font-weight: 600;
+            text-align: center;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+        button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .radio-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Adobe Creative Cloud application usage</h3>
+    <p>How familiar are you in using Adobe Creative Cloud Applications (e.g., Photoshop, Illustrator..)?</p>
+
+    <div class="form-container">
+        <form action="/save_adobe_app" method="POST">
+            <div class="radio-container">
+                <label><input type="radio" name="adobe_app" value="Not familiar at all" required> <strong>Not familiar at all:</strong> I have never used it before.</label>
+                <label><input type="radio" name="adobe_app" value="Slightly familiar"> <strong>Slightly familiar:</strong> I have some basic knowledge but have rarely used it.</label>
+                <label><input type="radio" name="adobe_app" value="Moderately familiar"> <strong>Moderately familiar:</strong> I can perform simple tasks but may need guidance for more complex features.</label>
+                <label><input type="radio" name="adobe_app" value="Very familiar"> <strong>Very familiar:</strong> I use frequently and can handle most tasks with confidence.</label>
+                <label><input type="radio" name="adobe_app" value="Extremely familiar"> <strong>Extremely familiar:</strong> I am an expert and can use many advanced features with ease.</label>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
