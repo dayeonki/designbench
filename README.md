@@ -1,8 +1,7 @@
 # <img src="https://github.com/user-attachments/assets/d585178d-9fe9-4d71-8347-4ba181065a26" style="width: 30px;" alt="design"> GraphicBench: A Planning Benchmark for Graphic Design Generation with Language Agents
 
-Authors: Dayeon Ki*, Tianyi Zhou, Marine Carpuat, Gang Wu**, Puneet Mathur**, Viswanathan Swaminathan**
-
-(*: This work is done during internship at Adobe Research., **: Co-mentors)
+Authors: Dayeon Ki*, Tianyi Zhou, Marine Carpuat, Gang Wu**, Puneet Mathur**, Viswanathan Swaminathan** <br>
+<sub>(*: This work is done during internship at Adobe Research., **: Co-mentors)</sub>
 
 This repository contains the code and dataset for our paper **GraphicBench: A Planning Benchmark for Graphic Design Generation with Language Agents**.
 
