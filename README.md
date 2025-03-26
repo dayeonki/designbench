@@ -1,4 +1,4 @@
-# GraphicBench: A Planning Benchmark for Graphic Design Generation with Language Agents
+# <img src="https://github.com/user-attachments/assets/d585178d-9fe9-4d71-8347-4ba181065a26" style="width: 30px;" alt="design"> GraphicBench: A Planning Benchmark for Graphic Design Generation with Language Agents
 
 This repository contains the code and dataset for our paper **GraphicBench: A Planning Benchmark for Graphic Design Generation with Language Agents**.
 
