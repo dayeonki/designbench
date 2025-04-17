@@ -1,13 +1,15 @@
 # <img src="https://github.com/user-attachments/assets/d585178d-9fe9-4d71-8347-4ba181065a26" style="width: 30px;" alt="design"> GraphicBench: A Planning Benchmark for Graphic Design Generation with Language Agents
 
 Authors: Dayeon Ki*, Tianyi Zhou, Marine Carpuat, Gang Wu**, Puneet Mathur**, Viswanathan Swaminathan** <br>
-<sub>(*: This work is done during internship at Adobe Research., **: Co-mentors)</sub>
+<sub>(*: This work is done during internship at Adobe Research., **: Co-advisors)</sub>
 
 This repository contains the code and dataset for our paper **GraphicBench: A Planning Benchmark for Graphic Design Generation with Language Agents**.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/b3415a65-ccac-4468-a291-07602cb95509" style="width: 15px;" alt="code"> <b><a href=https://github.com/dayeonki/designbench>Code</a></b> | <img src="https://github.com/user-attachments/assets/2bd9af9b-2182-4aef-83cd-6e9ca6189a39" style="width: 15px;" alt="data">
- <b><a>Dataset</a></b> | <img src="https://github.com/user-attachments/assets/fc2ca3c2-3e78-4ca4-a208-448c0a6c7068" style="width: 15px;" alt="paper"> <b><a>Paper</a></b>
+<img src="https://github.com/user-attachments/assets/b3415a65-ccac-4468-a291-07602cb95509" style="width: 15px;" alt="code"> <b><a href=https://github.com/dayeonki/designbench>Code</a></b> | 
+ <img src="https://github.com/user-attachments/assets/2bd9af9b-2182-4aef-83cd-6e9ca6189a39" style="width: 15px;" alt="data">
+ <b><a>Dataset</a></b> | 
+ <img src="https://github.com/user-attachments/assets/fc2ca3c2-3e78-4ca4-a208-448c0a6c7068" style="width: 15px;" alt="paper"> <b><a href=https://arxiv.org/pdf/2504.11571>Paper</a></b>
 </div>
 
 
